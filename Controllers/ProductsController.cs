@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Internal;
 using Product.DbLogic;
 using Product.Models;
 
@@ -49,7 +50,19 @@ namespace Product.Controllers
             {
                 return StatusCode(500, $"Internal Server Error: {ex.Message}");
             }
+        }
 
+        [HttpDelete]
+        public IActionResult Delete(int id)
+        {
+            var products = _context.products.FirstOrDefault(p => p.ID == id);
+            if (products == null)
+            {
+                return BadRequest($"Product with ID {id} is not available.");
+            }
+            _context.products.Remove(products);
+            _context.SaveChanges();
+            return Ok(new { Message = "Product Deleted Successfully" });
         }
     }
 }
