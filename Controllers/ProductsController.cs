@@ -13,11 +13,14 @@ namespace Product.Controllers
         {
             _context = context;
         }
+
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(new { Name = "Products", Price = 100 });
+            List<Products> products = _context.products.ToList();
+            return Ok(products);
         }
+
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] Products products)
         {
