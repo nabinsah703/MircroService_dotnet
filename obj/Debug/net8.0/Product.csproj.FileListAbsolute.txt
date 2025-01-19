@@ -34,3 +34,4 @@ C:\Users\nabin\OneDrive\Desktop\microservices\Product\obj\Debug\net8.0\refint\Pr
 C:\Users\nabin\OneDrive\Desktop\microservices\Product\obj\Debug\net8.0\Product.pdb
 C:\Users\nabin\OneDrive\Desktop\microservices\Product\obj\Debug\net8.0\Product.genruntimeconfig.cache
 C:\Users\nabin\OneDrive\Desktop\microservices\Product\obj\Debug\net8.0\ref\Product.dll
+C:\Users\nabin\OneDrive\Desktop\microservices\Product\obj\Debug\net8.0\Product.sourcelink.json

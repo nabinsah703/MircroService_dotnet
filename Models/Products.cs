@@ -1,6 +1,6 @@
 ﻿namespace Product.Models
 {
-    public class Product
+    public class Products
     {
         public int ID { get; set; }
         public string? ProductName { get; set; }
