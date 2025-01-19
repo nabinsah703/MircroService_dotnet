@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "Product.Controllers.ProductsController",
+    "Method": "EditProduct",
+    "RelativePath": "api/Products",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "products",
+        "Type": "Product.Models.Products",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Product.Controllers.ProductsController",
     "Method": "Delete",
     "RelativePath": "api/Products",
     "HttpMethod": "DELETE",

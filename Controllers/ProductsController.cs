@@ -52,6 +52,28 @@ namespace Product.Controllers
             }
         }
 
+        [HttpPut]
+        public async Task<IActionResult> EditProduct(Products products)
+        {
+            Products product = _context.products.FirstOrDefault(p => p.ID == products.ID)!;
+            if (product == null)
+            {
+                return BadRequest($"Product with id {products.ID} is not available.");
+            }
+
+            product.ProductName = products.ProductName;
+            product.ProductDescription = products.ProductDescription;
+            product.ProductCount = products.ProductCount;
+            product.Price = products.Price;
+            product.ProductCategoryID = products.ProductCategoryID;
+            product.Quantity = products.Quantity;
+            
+            _context.products.Update(product);
+            await _context.SaveChangesAsync();
+            return Ok("Product updated successfully");
+
+
+        }
         [HttpDelete]
         public IActionResult Delete(int id)
         {
