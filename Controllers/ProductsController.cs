@@ -21,6 +21,17 @@ namespace Product.Controllers
             return Ok(products);
         }
 
+        [HttpGet("{id}")]
+        public IActionResult GetByProductID(int id)
+        {
+            Products products = _context.products.FirstOrDefault(x => x.ID == id)!;
+            if (products == null)
+            {
+                return BadRequest($"No Product Available With {id} ID.");
+            }
+            return Ok(products);
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateProduct([FromBody] Products products)
         {
