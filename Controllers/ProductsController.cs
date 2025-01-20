@@ -63,7 +63,7 @@ namespace Product.Controllers
 
             product.ProductName = products.ProductName;
             product.ProductDescription = products.ProductDescription;
-            product.ProductCount = products.ProductCount;
+            product.ProductCode = products.ProductCode;
             product.Price = products.Price;
             product.ProductCategoryID = products.ProductCategoryID;
             product.Quantity = products.Quantity;
