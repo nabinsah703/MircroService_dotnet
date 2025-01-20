@@ -8,6 +8,7 @@ namespace Product.DbLogic
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         { }
         public DbSet<Products> products { get; set; } // DbSet for products
+        public DbSet<ProductGroup> productGroups { get; set; }
 
     }
 }
