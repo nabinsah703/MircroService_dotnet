@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Product.DbLogic;
 
@@ -10,9 +11,11 @@ using Product.DbLogic;
 namespace Product.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250120162553_AddProductGroupProductRelationshipWithIntegrityContraint")]
+    partial class AddProductGroupProductRelationshipWithIntegrityContraint
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -32,7 +35,7 @@ namespace Product.Migrations
 
                     b.Property<string>("ProductGroupCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductGroupName")
                         .IsRequired()
@@ -43,9 +46,6 @@ namespace Product.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ProductGroupCode")
-                        .IsUnique();
 
                     b.ToTable("productGroups");
                 });
@@ -64,7 +64,7 @@ namespace Product.Migrations
 
                     b.Property<string>("ProductCode")
                         .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductDescription")
                         .HasColumnType("nvarchar(max)");
@@ -80,9 +80,6 @@ namespace Product.Migrations
                         .HasColumnType("decimal(18,2)");
 
                     b.HasKey("ID");
-
-                    b.HasIndex("ProductCode")
-                        .IsUnique();
 
                     b.HasIndex("ProductGroupID");
 

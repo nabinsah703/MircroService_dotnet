@@ -65,7 +65,6 @@ namespace Product.Controllers
             product.ProductDescription = products.ProductDescription;
             product.ProductCode = products.ProductCode;
             product.Price = products.Price;
-            product.ProductCategoryID = products.ProductCategoryID;
             product.Quantity = products.Quantity;
             
             _context.products.Update(product);
